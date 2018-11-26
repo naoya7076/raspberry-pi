@@ -64,7 +64,7 @@ Public Const ecOutBufferSize As Long = 2048&
 '   成功時 = ハンドル，失敗時 = INVALID_HANDLE_VALUE
 '   lpSecurityAttributes は SECURITY_ATTRIBUTESへのポインタ
 '   使わないので long で定義して Null(&0)を渡す。（ByValに変更）
-Public Declare PtrSafe Function _
+Public Declare Function _
     CreateFile Lib "kernel32" Alias "CreateFileA" ( _
         ByVal lpFileName As String, _
         ByVal dwDesiredAccess As Long, _
@@ -104,7 +104,7 @@ As Long
 '======================
 '   ファイルのクローズ
 '   成功時 <>0，失敗時 = 0
-Public Declare PtrSafe Function _
+Public Declare Function _
     CloseHandle Lib "kernel32" ( _
         ByVal hObject As Long) _
 As Long
@@ -115,7 +115,7 @@ As Long
 '======================
 '   ポートの設定値をDCBに読み出す
 '   成功時 <>0，失敗時 = 0
-Public Declare PtrSafe Function _
+Public Declare Function _
     GetCommState Lib "kernel32" ( _
         ByVal nCid As Long, _
         ByRef lfDCB As DCB) _
@@ -126,7 +126,7 @@ As Long
 '======================
 '   DCBの内容を設定する
 '   成功時 <>0，失敗時 = 0
-Public Declare PtrSafe Function _
+Public Declare Function _
     SetCommState Lib "kernel32" ( _
         ByVal hCommDev As Long, _
         ByRef lfDCB As DCB) _
@@ -137,7 +137,7 @@ As Long
 'BuildCommDCB
 '======================
 '文字列によるポートの設定
-Public Declare PtrSafe Function _
+Public Declare Function _
     BuildCommDCB Lib "kernel32" Alias "BuildCommDCBA" ( _
     ByVal lpDef As String, _
     ByRef lfDCB As DCB) _
@@ -147,7 +147,7 @@ As Long
 'GetCommTimeouts
 '======================
 'タイムアウトの読み出し
-Public Declare PtrSafe Function _
+Public Declare Function _
     GetCommTimeouts Lib "kernel32" ( _
         ByVal hFile As Long, _
         ByRef lfCOMMTIMEOUTS As COMMTIMEOUTS) _
@@ -157,7 +157,7 @@ As Long
 'SetCommTimeouts
 '======================
 'タイムアウトの設定
-Public Declare PtrSafe Function _
+Public Declare Function _
     SetCommTimeouts Lib "kernel32" ( _
         ByVal hFile As Long, _
         ByRef lfCOMMTIMEOUTS As COMMTIMEOUTS) _
@@ -167,7 +167,7 @@ As Long
 'PurgeComm
 '======================
 'バッファのクリア
-Public Declare PtrSafe Function _
+Public Declare Function _
     PurgeComm Lib "kernel32" ( _
         ByVal hFile As Long, _
         ByVal dwFlags As Long) _
@@ -177,7 +177,7 @@ As Long
 'ClearCommError
 '======================
 'バッファの状態を取得
-Public Declare PtrSafe Function _
+Public Declare Function _
     ClearCommError Lib "kernel32" ( _
         ByVal hFile As Long, _
         ByRef lpErrors As Long, _
@@ -188,7 +188,7 @@ As Long
 'SetupComm
 '======================
 'バッファサイズの指定
-Public Declare PtrSafe Function _
+Public Declare Function _
     SetupComm Lib "kernel32" ( _
         ByVal hFile As Long, _
         ByVal dwInQueue As Long, _
@@ -199,7 +199,7 @@ As Long
 'GetCommProperties
 '======================
 'ポートの仕様の取得
-Public Declare PtrSafe Function _
+Public Declare Function _
     GetCommProperties Lib "kernel32" ( _
         ByVal hFile As Long, _
         ByRef lfCOMMPROP As COMMPROP) _
@@ -212,7 +212,7 @@ As Long
 'lpBufferは，バイナリコードを扱うことがあるのでStringではなくAnyで宣言する
 'lpOverlappedは使わないときにNullを渡すのでLongまたはAny
 '---Vers 1.00
-'Public Declare PtrSafe Function WriteFile Lib "kernel32" ( _
+'Public Declare Function WriteFile Lib "kernel32" ( _
 '    ByVal hFile As Long, _
 '    ByRef lpBuffer As Any, _
 '    ByVal nNumberOfBytesToWrite As Long, _
@@ -221,7 +221,7 @@ As Long
 'As Long
 '---Vers1.01
 
-'Public Declare PtrSafe Function WriteFile Lib "kernel32" ( _
+'Public Declare Function WriteFile Lib "kernel32" ( _
 '    ByVal hFile As Long, _
 '    ByRef lpBuffer As Any, _
 '    ByVal nNumberOfBytesToWrite As Long, _
@@ -231,14 +231,14 @@ As Long
 
 'win32api.txtではlpOverlappedがByRefで定義されているがByValの誤り
 '定義内容
-'Declare PtrSafe Function WriteFile Lib "kernel32" ( _
+'Declare Function WriteFile Lib "kernel32" ( _
 '    ByVal hFile As Long, _
 '    lpBuffer As Any, _
 '    ByVal nNumberOfBytesToWrite As Long, _
 '    lpNumberOfBytesWritten As Long, _
 '    lpOverlapped As OVERLAPPED) _
 'As Long
-Declare PtrSafe Function WriteFile Lib "kernel32" ( _
+Declare Function WriteFile Lib "kernel32" ( _
     ByVal hFile As Long, _
     ByRef lpBuffer As Any, _
     ByVal nNumberOfBytesToWrite As Long, _
@@ -253,7 +253,7 @@ As Long
 'lpBufferは，バイナリコードを扱うことがあるのでStringではなくAnyで宣言する
 'lpOverlappedは使わないときにNullを渡すのでLongまたはAny
 '---Vers1.00
-'Public Declare PtrSafe Function ReadFile Lib "kernel32" ( _
+'Public Declare Function ReadFile Lib "kernel32" ( _
 '    ByVal hFile As Long, _
 '    ByRef lpBuffer As Any, _
 '    ByVal nNumberOfBytesToRead As Long, _
@@ -264,7 +264,7 @@ As Long
 
 'win32api.txtではlpOverlappedがByRefで定義されているがByValの誤り
 '定義内容
-'Declare PtrSafe Function ReadFile Lib "kernel32" ( _
+'Declare Function ReadFile Lib "kernel32" ( _
 '    ByVal hFile As Long, _
 '    lpBuffer As Any, _
 '    ByVal nNumberOfBytesToRead As Long, _
@@ -272,7 +272,7 @@ As Long
 '    lpOverlapped As OVERLAPPED) _
 'As Long
 
-Public Declare PtrSafe Function ReadFile Lib "kernel32" ( _
+Public Declare Function ReadFile Lib "kernel32" ( _
     ByVal hFile As Long, _
     ByRef lpBuffer As Any, _
     ByVal nNumberOfBytesToRead As Long, _
@@ -298,14 +298,14 @@ Public Const PURGE_RXCLEAR = &H8     '  受信バッファクリア
 '======================
 '停止タイマー関数
 '指定時間（ミリ秒），実行を中断する．
-Public Declare PtrSafe Sub Sleep Lib "kernel32" ( _
+Public Declare Sub Sleep Lib "kernel32" ( _
     ByVal dwMilliseconds As Long)
 
 '======================
 'EscapeCommFunction
 '======================
 'RTS,DTRの強制制御
-Public Declare PtrSafe Function _
+Public Declare Function _
     EscapeCommFunction Lib "kernel32" ( _
         ByVal nCid As Long, _
         ByVal nFunc As Long) _
@@ -322,7 +322,7 @@ Public Const CLRDTR = 6 '  Set DTR low
 'GetCommModemStatus
 '======================
 'RTS,DTRの状態の読み取り
-Public Declare PtrSafe Function _
+Public Declare Function _
     GetCommModemStatus Lib "kernel32" ( _
         ByVal hFile As Long, _
         lpModemStat As Long) _
@@ -338,7 +338,7 @@ Public Const MS_RLSD_ON = &H80&
 'SetCommBreak
 '======================
 'Break信号の送信
-Public Declare PtrSafe Function SetCommBreak Lib "kernel32" ( _
+Public Declare Function SetCommBreak Lib "kernel32" ( _
     ByVal nCid As Long) _
 As Long
 
@@ -346,7 +346,7 @@ As Long
 'ClearCommBreak
 '======================
 'Break信号の送信中止
-Public Declare PtrSafe Function ClearCommBreak Lib "kernel32" ( _
+Public Declare Function ClearCommBreak Lib "kernel32" ( _
     ByVal nCid As Long) _
 As Long
 
@@ -355,20 +355,20 @@ As Long
 '======================
 'Windows 起動からの経過時間をミリ秒単位で取得します．
 'API内では，経過時間は符号なしの長整数 DWORD 型で保存されています．
-Public Declare PtrSafe Function GetTickCount Lib "kernel32" () _
+Public Declare Function GetTickCount Lib "kernel32" () _
 As Long
 
 '======================
 'GetLocalTime
 '======================
 '現在のローカル時間をmS単位まで取得します．
-Public Declare PtrSafe Sub GetLocalTime Lib "kernel32" ( _
+Public Declare Sub GetLocalTime Lib "kernel32" ( _
     lpSystemTime As SYSTEMTIME)
 
 '======================
 'GetTempPath
 '======================
-Public Declare PtrSafe Function GetTempPath Lib "kernel32" Alias "GetTempPathA" ( _
+Public Declare Function GetTempPath Lib "kernel32" Alias "GetTempPathA" ( _
     ByVal nBufferLength As Long, _
     ByVal lpBuffer As String) _
 As Long

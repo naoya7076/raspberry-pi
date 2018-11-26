@@ -1,6 +1,4 @@
-Attribute VB_Name = "Module2"
 Sub Macro1()
-Attribute Macro1.VB_ProcData.VB_Invoke_Func = " \n14"
 '
 ' Macro1 Macro
 '
@@ -14,7 +12,6 @@ Attribute Macro1.VB_ProcData.VB_Invoke_Func = " \n14"
     ActiveChart.SetSourceData Source:=Range("A2:A13")
 End Sub
 Sub Macro2()
-Attribute Macro2.VB_ProcData.VB_Invoke_Func = " \n14"
 '
 ' Macro2 Macro
 '
