@@ -1,0 +1,11 @@
+import serial
+ser = serial.Serial(port="COM3", baudrate=9600)
+ser.write(b"C")
+ser.write(b"!")
+ser.write(b" ")
+ser.write(b"3")
+ser.write(b"7")
+ser.write(b"0")
+ser.write(b"0")
+ser.write(b"\r")
+ser.close()
