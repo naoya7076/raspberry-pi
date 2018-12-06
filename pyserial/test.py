@@ -1,11 +1,7 @@
 import serial
-ser = serial.Serial(port="COM3", baudrate=9600)
-ser.write(b"C")
-ser.write(b"!")
-ser.write(b" ")
-ser.write(b"3")
-ser.write(b"7")
-ser.write(b"0")
-ser.write(b"0")
-ser.write(b"\r")
+# PORT1:!
+# PORT2: "
+# PORT3: #
+ser = serial.Serial(port="/dev/ttyUSB0", baudrate=9600)
+ser.write(b'C" 39000\r')
 ser.close()
