@@ -1,12 +1,13 @@
 # Raspberry Piでシリアル通信
 
 ## 予定
-### 12/21
-午後から中間発表
+### 2/20卒論提出、2/22卒論発表会
 ## 今後の方針
-1. シリアル通信(Pyserial)を用いてUSB経由で設定器を動かす:done
-2. SIRCデバイスからの出力内容を確認:in progress
-3. 出力内容をRaspberry Piで受け取る:TODO
+1. BPFを用いて周波数出力をPiで受け取る
+2. 1で周波数追従するcodeを書く
+  if 無理な場合:
+    LPFを用いたものでcodeを書く
+3. +$\aplha $
 ## 資料
 ### DDS
 https://drive.google.com/drive/folders/1z8m4ppnf9YWSIbcWoUXOW7B0Dv5bHyhC?usp=sharing
