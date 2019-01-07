@@ -7,7 +7,8 @@
 2. 1で周波数追従するcodeを書く
   if 無理な場合:
     LPFを用いたものでcodeを書く
-3. +$\aplha $
+3. PC上のグラフに表示させる
+4.. +α 機械学習を用いれないか考える
 ## 資料
 ### DDS
 https://drive.google.com/drive/folders/1z8m4ppnf9YWSIbcWoUXOW7B0Dv5bHyhC?usp=sharing
