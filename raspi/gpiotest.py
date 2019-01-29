@@ -47,3 +47,5 @@ with open(str(setting) + "V.csv", 'w') as f:
     writer = csv.writer(f, lineterminator='\n')
     writer.writerow(["time", "volt"])
     writer.writerows(lines)
+
+# branchのテストで追加
