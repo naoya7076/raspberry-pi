@@ -10,7 +10,7 @@ Vref = 3.3  # TODO:ラズパイの電源電圧を厳密に計測する
 Interval = 0.1  # NOTE:25Hz帯域で欲しいので標本化定理より25*2=50Hz。よって目標は1/50秒で取得。限界値は5e-06
 elasped_time = 0  # 経過時間計測のため
 lines = []  # NOTE:他に必要情報「ch,設定周波数(指定したchの),入力周波数」
-setting = 400
+Input_Frequency = 400
 # 現在時刻の取得
 # now = time.ctime()
 # cnvtime = time.strptime(now)
@@ -43,7 +43,7 @@ while elasped_time <= 1:
     elasped_time += Interval
     time.sleep(Interval)
 
-with open(str(setting) + "V.csv", 'w') as f:
+with open(str(Input_Frequency) + "V.csv", 'w') as f:
     writer = csv.writer(f, lineterminator='\n')
     writer.writerow(["time", "volt"])
     writer.writerows(lines)
