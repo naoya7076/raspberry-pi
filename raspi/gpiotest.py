@@ -3,14 +3,14 @@ from gpiozero import MCP3008
 import time
 import csv
 import serial
-# from pandas import Series
-# import pandas as pd
+from pandas import Series
+import pandas as pd
 
 Vref = 3.3  # TODO:ラズパイの電源電圧を厳密に計測する
 Interval = 0.1  # NOTE:25Hz帯域で欲しいので標本化定理より25*2=50Hz。よって目標は1/50秒で取得。限界値は5e-06
 elasped_time = 0  # 経過時間計測のため
 lines = []  # NOTE:他に必要情報「ch,設定周波数(指定したchの),入力周波数」
-set_frequency = ["frequency", "volt"]  # find_frequencyのための配列
+set_frequency = pd.Series([])  # find_frequencyのための配列
 setting = 400
 # 現在時刻の取得
 # now = time.ctime()
@@ -29,18 +29,19 @@ PORT3: #
 select_port = ['!', '"', '#']
 
 
-def find_frequency(start_frequency, stop_frequency):
+def find_net_frequency(start_frequency, stop_frequency):
     for current_frequency in range(start_frequency, stop_frequency):
         message = 'C{port} {frequency}\r'.format(
             port=select_port[1], frequency=current_frequency)
         ser.write(message.encode())
         middle_volt = round(middle.value, 5)
-        set_frequency.append([current_frequency, middle_volt])
+        set_frequency[current_frequency] = middle_volt
         time.sleep(0.1)
+    net_frequency = abs(set_frequency).idxmax()
+    print(net_frequency)
 
 
-find_frequency(0, 500)
-
+find_net_frequency(100, 300)
 
 while elasped_time <= 1:
     # top_volt_str = "{:.4f}".format(top.value * Vref)
