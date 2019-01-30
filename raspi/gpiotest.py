@@ -38,7 +38,7 @@ def find_net_frequency(start_frequency, stop_frequency):
         set_frequency[current_frequency] = middle_volt
         time.sleep(0.1)
     net_frequency = abs(set_frequency).idxmax()
-    print(net_frequency)
+    return net_frequency
 
 
 find_net_frequency(100, 300)
