@@ -43,6 +43,10 @@ def find_net_frequency(start_frequency, stop_frequency):
 
 find_net_frequency(100, 300)
 
+
+def frequency_analysis_by_FFT():
+
+
 while elasped_time <= 1:
     # top_volt_str = "{:.4f}".format(top.value * Vref)
     # middle_volt_str = "{:.4f}".format(middle.value * Vref)
